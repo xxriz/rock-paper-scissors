@@ -1,65 +1,85 @@
-//Set Game Score
-
-let playerScore = 0
-let compScore = 0
-
-
-//Function: CPU pick random choice
+// Function: Get computer choice
 
 function getComputerChoice(){
-    
-    let choice = ["rock","paper","scissors"];
-    let random = choice[Math.floor(Math.random()*choice.length)] ;
-    return random;
-    
+    let computerChoice = ["rock","paper","scissors"];
+    let randomChoice = computerChoice[Math.floor(Math.random()*computerChoice.length)];
+    return randomChoice;
 }
 
 
-//Function: Decides who wins (Player vs CPU)
+// Function: Get player choice
+
+function getPlayerChoice(){
+    let playerChoice = prompt("Enter your selection: ");
+    return playerChoice;
+}
+
+// Function: Calculate winner of each round
 
 function playRound(playerSelection, computerSelection){
-    console.log(playerSelection)
-    console.log(computerSelection)
-    if (playerSelection === computerSelection){
-        return ("It's a draw!");
-    } else if (playerSelection === "rock" && computerSelection === "paper"){
-        compScore++;
-        return ("You lose! Paper beats rock");
-    } else if (playerSelection === "rock" && computerSelection === "scissors"){
-        playerScore++
-        return ("You win! Rock beats scissors");
-    } else if (playerSelection === "paper" && computerSelection === "scissors"){
-        compScore++
-        return ("You lose! Scissors beats paper");
-    } else if (playerSelection === "paper" && computerSelection === "rock"){
-        playerScore++
-        return ("You win! Paper beats rock")
-    } else if (playerSelection === "scissors" && computerSelection === "rock"){
-        compScore++
-        return ("You lose! Rock beats scissors")
-    } else if (playerSelection === "scissors" && computerSelection === "paper"){
-        playerScore++
-        return ("You win! Scissors beats paper")
+
+    let winner = "You Win! " + playerSelection + " beats " + computerSelection;
+    let loser = "You Lose! " + computerSelection + " beats " + playerSelection;
+    let draw = "Its a Draw!";
+
+    if(playerSelection === "rock" && computerSelection === "rock"){
+        return draw;
+    } else if(playerSelection === "rock" && computerSelection === "paper"){
+        computerScore++;
+        return loser;
+    } else if(playerSelection === "rock" && computerSelection === "scissors"){
+        playerScore++;
+        return winner;
+    } 
+    
+    else if(playerSelection === "paper" && computerSelection === "rock"){
+        playerScore++;
+        return winner;
+    } else if(playerSelection === "paper" && computerSelection === "paper"){
+        return draw;
+    } else if(playerSelection === "paper" && computerSelection === "scissors"){
+        computerScore++;
+        return loser;
+    }
+
+    else if(playerSelection === "scissors" && computerSelection === "rock"){
+        computerScore++;
+        return loser;
+    } else if(playerSelection === "scissors" && computerSelection === "paper"){
+        playerScore++;
+        return winner;
+    } else if(playerSelection === "scissors" && computerSelection === "scissors"){
+        return draw;
     }
 }
 
-//Function: Play Rock-Paper-Scissors
+
+
+// Function: Play Rock-Paper-Scissors
 
 function game(){
-    for (let i = 0; i < 5 ; i++){
-        let playerSelection = prompt("Pick your move!").toLowerCase()
-        let computerSelection = getComputerChoice()
-        console.log(playRound(playerSelection,computerSelection))
+    for(let round = 1; round <= 5; round++){
+
+    playerSelection = getPlayerChoice();
+    computerSelection = getComputerChoice();
+    console.log(playRound(playerSelection,computerSelection));
+
+
     }
-    
-    if (playerScore > compScore){
-        return("You beat the CPU!")
-    }else if (playerScore < compScore){
-        return("The CPU beat you!")
+
+    if(playerScore > computerScore){
+        console.log("Congratulations! You Win! Score is " + playerScore + " - " + computerScore);
+    } else if(playerScore < computerScore){
+        console.log("Too bad, you lost! Score is " + playerScore + " - " + computerScore );
+    } else {
+        console.log("You tied! Score is " + playerScore + " - " + computerScore);
     }
-    
 }
 
-//Execute js
 
-console.log(game())
+// Set game score
+let playerScore = 0;
+let computerScore = 0;
+
+// Play game
+game();
