@@ -4,16 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>HTML 5 Boilerplate</title>
+    <title>Rock Paper Scissors</title>
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <button class="rockButton">Rock</button>
-    <button class="paperButton">Paper</button>
-    <button class="scissorsButton">Scissors</button>
-    <div class="currentScore"></div>
+    <h1>ROCK PAPER SCISSORS</h1>
+    
+    <div class="currentScoreContainer">
+      <p class="currentScoreMessage"><span id="character">Player</span><span id="score"> 0 - 0 </span><span id="character">CPU</span> </p>
+    </div>
+
+    <div class="rps-container"> 
+      <button class="rockButton">
+        <img src="images/rock.png" alt="rock">
+      </button>
+      <button class="paperButton">
+        <img src="images/paper.png" alt="paper">
+      </button>
+      <button class="scissorsButton">
+      <img src="images/scissors.png" alt="scissors">
+      </button>
+    </div>
+
     <div class="outcome"></div>
     <div class="rematch"></div>
-	<script src="script.js"></script>
+	  <script src="script.js"></script>
   </body>
+
+  <footer>HTML | CSS | Javascript</footer>
 </html>

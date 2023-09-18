@@ -1,20 +1,23 @@
+// Set game score
+let playerScore = 0;
+let computerScore = 0;
+
+// Select rock-paper-scissors button
 const rockButton = document.querySelector('.rockButton');
 const paperButton = document.querySelector('.paperButton');
 const scissorsButton = document.querySelector('.scissorsButton');
 
+// Select reset button
 const rematch = document.querySelector('.rematch');
 const rematchButton = document.createElement('button');
 rematchButton.innerText = 'Reset';
 
 const outcome = document.querySelector('.outcome');
-
 const result = document.createElement('p');
-
 const body = document.querySelector('body');
+const currentScoreContainer = document.querySelector('.currentScoreContainer');
 
-const currentScore = document.querySelector('.currentScore');
-
-const h2 = document.createElement('h2');
+const score = document.getElementById('score');
 const h3 = document.createElement('h3');
 
 
@@ -54,11 +57,14 @@ function endGame(playerScore, computerScore){
 }
 
 
+
 //Function: Display current score
 function displayCurrentScore(playerScore, computerScore){
-    h2.innerText = `The Current Score is: ${playerScore} - ${computerScore}`;
-    currentScore.appendChild(h2);
+    score.innerText = ` ${playerScore} - ${computerScore} `;
+    // currentScoreContainer.appendChild(currentScoreMessage);
 }
+
+
 
 
 // Function: Calculate winner of each round
@@ -109,9 +115,8 @@ function playRound(playerSelection, computerSelection){
 }
 
 
-// Set game score
-let playerScore = 0;
-let computerScore = 0;
+
+
 
 // Play game
 rockButton.addEventListener('click', () => {
@@ -148,7 +153,7 @@ rockButton.addEventListener('click', () => {
     scissorsButton.disabled = false;
     playerScore = 0;
     computerScore = 0;
-    currentScore.removeChild(h2);
+    displayCurrentScore(playerScore, computerScore);
     outcome.removeChild(result);
     outcome.removeChild(h3);
     rematch.removeChild(rematchButton);

@@ -1,0 +1,9 @@
+* {
+    box-sizing: border-box;
+}
+
+#character {
+    background-color: #FF2400;
+    padding: 5px 20px;
+    
+}
