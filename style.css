@@ -1,9 +1,81 @@
 * {
     box-sizing: border-box;
+    font-family: Helvetica, sans-serif;
+}
+
+.gameTitle {
+    background: #FAF9F6;
+    width:700px;
+    margin:auto;
+    padding:1px;
+    color: #121212;
+    border: solid #DB7093 5px;
+}
+
+p, h3, footer{
+    color:#FAF9F6;
+}
+
+.currentScoreContainer{
+    margin:3em;
 }
 
 #character {
-    background-color: #FF2400;
+    background-color: #DB7093;
     padding: 5px 20px;
+    border-radius: 5px;
     
+}
+
+#score {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+body {
+    background-color: #121212;
+    text-align: center;
+}
+
+
+.rps-container {
+    display: flex;
+    gap: 2.5rem;
+    justify-content: center;
+
+}
+
+img {
+    width: 8rem;
+    height: 8rem;
+    background-color: #F8F0E3;
+}
+
+#gameButton {
+    width:12rem;
+    height:12rem;
+    border-radius: 50%;
+    background-color: #F8F0E3;
+    border: solid #DB7093 5px;
+    margin-bottom: 3em;
+}
+
+
+.rematch{
+    margin-bottom: 1.5em;
+}
+
+.rematchButton{
+    width:7rem;
+    height:2rem;
+    border-radius: 5px;
+    background-color: #DB7093;
+    border: solid #DB7093;
+    color: #F8F0E3;
+}
+
+footer{
+    position: fixed;
+    bottom: 5px;
+    width: 100%;
 }

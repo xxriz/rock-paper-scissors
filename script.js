@@ -10,7 +10,7 @@ const scissorsButton = document.querySelector('.scissorsButton');
 // Select reset button
 const rematch = document.querySelector('.rematch');
 const rematchButton = document.createElement('button');
-rematchButton.innerText = 'Reset';
+rematchButton.innerText = 'Play again?';
 
 const outcome = document.querySelector('.outcome');
 const result = document.createElement('p');
@@ -41,18 +41,22 @@ function checkForWinner(playerScore, computerScore){
     }
   }
 
+
+//Function: Restart game
 function endGame(playerScore, computerScore){
     if(playerScore === 5){
         rockButton.disabled = true;
         paperButton.disabled = true;
         scissorsButton.disabled = true;
-        rematch.appendChild(rematchButton);
+        rematch.appendChild(rematchButton)
+        rematchButton.classList.add("rematchButton");
     }
     else if(computerScore === 5){
         rockButton.disabled = true;
         paperButton.disabled = true;
         scissorsButton.disabled = true;
         rematch.appendChild(rematchButton);
+        rematchButton.classList.add("rematchButton");
       }
 }
 
